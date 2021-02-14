@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>HELLO!</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div >
+        <form class="px-4 py-3" id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            <label style="font-size:15px;">Name</label>
+            <input type="text" class="form-control" name="name" placeholder="your name..." required="required" autofocus>
+          </div>
+          <div class="form-group">
+            <label style="font-size:15px;"> E-mail </label>
+            <input type="text" class="form-control" name="email" placeholder="email@example.com" required="required" autofocus >
+          </div>
+          <div class="form-group">
+            <label style="font-size:15px;"> Title </label>
+            <input type="text" class="form-control" name="title" placeholder="What makes you inspired?" required="required" autofocus >
+          </div>
+          <div class="form-group">
+            <label style="font-size:15px;"> Description </label>
+            <input type="text" class="form-control" name="description" placeholder="Please describe your inspirer from the point of your view" required="required" autofocus >
+          </div>
+          <div class="form-group">
+            <label style="font-size:15px;"> Tag </label>
+            <input type="text" class="form-control" name="tag" placeholder="Tag it" required="required" autofocus >
+          </div>
+            <input type="file" name="file" accept="image\*" multiple>
+            <h1>"input type="submit" value="send""</h1>
+            <div>
+                <button type="submit" name="submit" class="btn btn-lg btn-primary btn-block">Add</button>
+            </div>
+        </form>
+        <div class="dropdown-divider"></div>
+      </div>
+
+</body>
+</html>

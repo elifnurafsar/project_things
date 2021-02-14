@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<style>
+
+.container-for-column{
+  column-width: 200px;
+}
+
+th {
+    text-align: center;
+    }
+
+td {
+    text-align: center;
+    }
+
+.xf{
+    width: 200px;
+    height: 200px;
+}
+
+body {
+  background: #f4f4f4;
+}
+
+.banner {
+  background: #a770ef;
+  background: -webkit-linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
+  background: linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
+}
+
+</style>
+<html>
+    <head>
+        <title>ALREN</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Bootstrap 4 Introduction</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous">
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg static-top" style="background-color: #f895da;">
+            <div class="container">
+            <a class="navbar-brand" href="#">
+                <div class="logo-image">
+                    <img src="{{ url_for('send_image', filename='image13.jpg') }}" style="max-width:47px; border-radius:50%;" >  
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Ana Sayfa
+                        <span class="sr-only">(current)</span>
+                        </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('filter') }}">Filter</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('upload') }}">Upload</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('signup') }}">Signup</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="px-lg-5">
+        
+                <div class="row py-5">
+                    <div class="col-lg-12 mx-auto">
+                    <div class="text-white p-5 shadow-sm rounded banner">
+                        <h1 class="display-4">WHAT MAKES YOU INSPIRED</h1>
+                        <p class="lead">Hope it nourishes your soul</p>
+                        </p>
+                    </div>
+                    </div>
+                </div>
+            <!-- End -->
+        
+            <div class="row">
+                {% for thing in res %}
+                    <!-- Gallery item -->
+                    <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                    <div class="bg-white rounded shadow-sm"><img src="{{ url_for('send_image', filename=thing.img1) }}" alt="" class="img-fluid card-img-top">
+                        <div class="p-4">
+                        <h5> <a href="#" class="text-dark">{{thing.name}}</a></h5>
+                        <p class="small text-muted mb-0">{{thing.description}}</p>
+                        <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                            <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">{{thing.tag}}</span></p>
+                            <div><a href="details.html" class="btn btn-warning px-3 rounded-pill font-weight-normal">Details</a></div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- End -->
+                {% endfor %}
+            </div>
+            <div class="py-5 text-right"><a href="#" class="btn btn-dark px-5 py-3 text-uppercase">Show me more</a></div>
+            </div>
+        </div>
+    </body>
+</html>
